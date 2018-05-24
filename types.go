@@ -151,7 +151,7 @@ type Image struct {
 	ImageId          string
 	OsName           string
 	ImageSize        int
-	ImageType        int
+	ImageType        string
 	CreatedTime      string
 	ImageState       string
 	ImageName        string
