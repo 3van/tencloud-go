@@ -150,7 +150,7 @@ type Quota struct {
 type Image struct {
 	ImageId          string
 	OsName           string
-	ImageSize        string
+	ImageSize        int
 	ImageType        int
 	CreatedTime      string
 	ImageState       string
