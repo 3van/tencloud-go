@@ -7,6 +7,7 @@ import (
 type DetachInstanceRequest struct {
 	ScalingGroupId string   `json:"scalingGroupId,omitempty" url:"scalingGroupId,omitempty"`
 	InstanceIds    []string `json:"instanceIds,omitempty" url:"instanceIds,omitempty,dotnumbered"`
+	KeepInstance   int      `json:"keepInstance,omitempty" url:"keepInstance,omitempty"`
 }
 
 func (c *Client) DetachInstance(req *DetachInstanceRequest) error {
