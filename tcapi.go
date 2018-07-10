@@ -90,6 +90,23 @@ func New(secret_id, secret, region string, httpClient *http.Client) *Client {
 	}
 }
 
+func (c *Client) Copy(region string, httpClient *http.Client) *Client {
+	if region == "" {
+		region = c.Region
+	}
+	if httpClient == nil {
+		httpClient = http.DefaultClient
+	}
+	httpClient.Timeout = defaultTimeout
+
+	return &Client{
+		client:   httpClient,
+		Secret:   c.Secret,
+		SecretId: c.SecretId,
+		Region:   region,
+	}
+}
+
 func (c *Client) Do(module, request string, params interface{}) (*json.RawMessage, error) {
 	module = strings.ToLower(module)
 	version := ""
