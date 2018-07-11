@@ -123,6 +123,7 @@ type Instance struct {
 	RenewFlag           string
 	CreatedTime         string
 	ExpiredTime         string
+	InstanceState       string
 }
 
 type InstanceTypeConfig struct {
