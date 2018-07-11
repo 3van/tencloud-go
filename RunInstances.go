@@ -23,6 +23,7 @@ type RunInstancesRequest struct {
 	SecurityGroupIds      []string              `json:",omitempty" url:",omitempty,dotnumbered"`
 	EnhancedService       EnhancedService       `json:",omitempty" url:",omitempty,dotnumbered"`
 	ClientToken           string                `json:",omitempty" url:",omitempty"`
+	UserData              string                `json:",omitempty" url:",omitempty"`
 }
 
 type RunInstancesResponse struct {
