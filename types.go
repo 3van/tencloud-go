@@ -170,7 +170,7 @@ type AvailabilityZone struct {
 type KeyPair struct {
 	KeyId                 string
 	KeyName               string
-	ProjectId             string
+	ProjectId             int
 	Description           string
 	PublicKey             string
 	PrivateKey            string
