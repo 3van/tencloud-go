@@ -25,7 +25,7 @@ const (
 	apiPath        = "/v2/index.php"
 	apiBase        = "api.qcloud.com"
 	apiProto       = "https"
-	defaultTimeout = time.Second * 15
+	defaultTimeout = time.Second * 30
 )
 
 var moduleApiVersion = map[string]string{
