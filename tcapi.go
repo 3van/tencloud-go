@@ -119,10 +119,6 @@ func (c *Client) Do(module, request string, params interface{}) (*json.RawMessag
 		return nil, fmt.Errorf("could not parse baseURL: %s", err)
 	}
 
-	if err != nil {
-		return nil, fmt.Errorf("error encoding params struct: %s", err)
-	}
-
 	finalParams, err := query.Values(params)
 	if err != nil {
 		return nil, fmt.Errorf("could not parse parameters: %s", err)
