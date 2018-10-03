@@ -7,7 +7,7 @@ import (
 type CreateImageRequest struct {
 	InstanceId       string `json:",omitempty" url:",omitempty"`
 	ImageName        string `json:",omitempty" url:",omitempty"`
-	ImageDescription string `json:",omitempty" url:",omitempty,encoded"`
+	ImageDescription string `json:",omitempty" url:",omitempty"`
 }
 
 func (c *Client) CreateImage(req *CreateImageRequest) error {
