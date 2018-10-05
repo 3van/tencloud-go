@@ -119,10 +119,6 @@ func (c *Client) Do(module, request string, params interface{}) (*json.RawMessag
 		return nil, fmt.Errorf("could not parse baseURL: %s", err)
 	}
 
-	if err != nil {
-		return nil, fmt.Errorf("error encoding params struct: %s", err)
-	}
-
 	finalParams, err := query.Values(params)
 	if err != nil {
 		return nil, fmt.Errorf("could not parse parameters: %s", err)
@@ -207,11 +203,15 @@ func (c *Client) Do(module, request string, params interface{}) (*json.RawMessag
 
 func (c *Client) signRequestParams(method string, req url.URL, params *url.Values) error {
 	method = strings.ToUpper(method)
-	req.RawQuery = params.Encode()
+	var err error
+	req.RawQuery, err = url.QueryUnescape(params.Encode())
+	if err != nil {
+		return err
+	}
 
 	message := fmt.Sprintf("%s%s%s", method, req.Hostname(), req.RequestURI())
 	sig := hmac.New(sha1.New, []byte(c.Secret))
-	_, err := sig.Write([]byte(message))
+	_, err = sig.Write([]byte(message))
 	if err != nil {
 		return err
 	}
