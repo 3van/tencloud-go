@@ -124,6 +124,12 @@ type Instance struct {
 	CreatedTime         string
 	ExpiredTime         string
 	InstanceState       string
+	Tags                []Tag
+}
+
+type Tag struct {
+	Key   string
+	Value string
 }
 
 type InstanceTypeConfig struct {
